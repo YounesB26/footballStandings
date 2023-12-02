@@ -22,7 +22,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "resolveJsonModule": true//to let importing json files
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

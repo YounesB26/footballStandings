@@ -5,11 +5,12 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Router } from './modules/router';
+import { Standings } from './standings/app.standings';
 
 const router: Router = new Router();
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, Standings],
   imports: [
     BrowserModule,
     AppRoutingModule,

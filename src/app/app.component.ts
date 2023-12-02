@@ -13,11 +13,5 @@ export class AppComponent {
   constructor(private standings: StandingsService) {}
 
   ngOnInit() {
-    console.log(this.standings.getData());
-    
-    // this.standings.getData().subscribe((data) => {
-    //   this.data = data;
-    //   console.log(data);      
-    // });
   }
 }

@@ -4,7 +4,7 @@
       <h1 style="text-align: center">Football standings</h1>
     </div>
   </div>
-  <div class="row">
+  <div class="row pb-4">
     <div class="col"></div>
     <div class="btn-group col-6" role="group" aria-label="Basic example">
       <button type="button" class="btn btn-success">England</button>
@@ -14,5 +14,37 @@
       <button type="button" class="btn btn-success">Italy</button>
     </div>
     <div class="col"></div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col" class="text-center">#</th>
+            <th scope="col" class="text-center"></th>
+            <th scope="col" class="text-center">Name</th>
+            <th scope="col" class="text-center">Games</th>
+            <th scope="col" class="text-center">W</th>
+            <th scope="col" class="text-center">L</th>
+            <th scope="col" class="text-center">D</th>
+            <th scope="col" class="text-center">Goal Difference</th>
+            <th scope="col" class="text-center">Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of data; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{team.logo}}</td>
+            <td>Manchester United</td>
+            <td class="text-center">4</td>
+            <td class="text-center">2</td>
+            <td class="text-center">2</td>
+            <td class="text-center">0</td>
+            <td class="text-center">11</td>
+            <td class="text-center">33</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
