@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { StandingsService } from './services/app.standings.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,7 @@ export class AppComponent {
   title = 'footballStandings';
   data: any;
 
-  constructor(private standings: StandingsService) {}
+  constructor() {}
 
   ngOnInit() {
   }

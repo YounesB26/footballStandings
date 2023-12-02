@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Router } from './modules/router';
-import { Standings } from './standings/app.standings';
+import { Standings } from './components/standings/app.standings';
 
 const router: Router = new Router();
 
