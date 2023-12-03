@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { StandingsService } from '../../services/footAPI.services';
 import { I_Standings } from 'src/app/model/standings.model';
+import { DataSharingService } from 'src/app/services/dataSharing.services';
 
 @Component({
   selector: 'app-standings',
@@ -18,15 +19,23 @@ export class Standings {
   season: number = new Date().getFullYear();
   selectedLeague: number = 0;
 
-  constructor(private st: StandingsService) {}
+  constructor(
+    private st: StandingsService,
+    private dataSave: DataSharingService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.selectedLeague = this.dataSave.getLeague();
+    if (this.selectedLeague) {
+      this.getStandings(this.selectedLeague);
+    }
+  }
 
-  getStandings(leagueCode: number) {
-    this.selectedLeague = leagueCode;
+  getStandings(leagueCode: number): void {
     this.st.getLeague(leagueCode, this.season).subscribe((data) => {
       this.data = data.response[0].league.standings[0];
-      console.log(data);
     });
+    this.selectedLeague = leagueCode;
+    this.dataSave.setLeague(leagueCode);
   }
 }

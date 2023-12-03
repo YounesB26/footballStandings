@@ -6,11 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Router } from './modules/router';
 import { Standings } from './components/standings/app.standings';
+import { Fixtures } from './components/fixtures/app.fixtures';
 
 const router: Router = new Router();
 
 @NgModule({
-  declarations: [AppComponent, Standings],
+  declarations: [AppComponent, Standings, Fixtures],
   imports: [
     BrowserModule,
     AppRoutingModule,
