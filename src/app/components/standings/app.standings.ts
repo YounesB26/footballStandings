@@ -28,12 +28,12 @@ export class Standings implements OnInit, OnDestroy {
   }
 
   getStandings(leagueCode: number): void {
+    this.dataSave.setLeague((this.selectedLeague = leagueCode));
     this.subscription = this.st
       .getLeague(leagueCode, this.season)
       .subscribe((data) => {
         if (data.response && data.response.length) {
           this.dataStandings = data.response[0].league.standings[0];
-          this.dataSave.setLeague((this.selectedLeague = leagueCode));
         }
       });
   }
