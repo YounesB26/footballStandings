@@ -1,44 +1,51 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { I_Fixture, I_FixtureResponse } from 'src/app/model/fixtures.model';
+import { I_Fixture } from 'src/app/model/fixtures.model';
 import { FixturesService } from 'src/app/services/footAPI.services';
+import { DataSharingService } from 'src/app/services/dataSharing.services';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-fixtures',
   templateUrl: './app.fixtures.html',
 })
-export class Fixtures implements OnInit {
+export class Fixtures implements OnInit, OnDestroy {
   dataFixture: I_Fixture[] = [];
-  team?: number;
-  league?: number;
+  team: number = 0;
+  league: number = 0;
+  subscription: Subscription = Subscription.EMPTY;
 
   constructor(
     private r: Router,
+    private sharedData: DataSharingService,
     private activeRoute: ActivatedRoute,
     private s: FixturesService
   ) {}
 
   ngOnInit() {
-    this.activeRoute.params.subscribe(() => {
-      this.team = +this.activeRoute.snapshot.params['league'];
-      this.league = +this.activeRoute.snapshot.params['team'];
+    this.subscription = this.activeRoute.params.subscribe(() => {
+      this.team = +this.activeRoute.snapshot.params['team'];
+      this.league = +this.activeRoute.snapshot.params['league'];
+      if (this.team && this.league) {
+        this.getTeamFixtures(this.league, this.team);
+        this.sharedData.setLeague(this.league);
+      } else {
+        this.r.navigateByUrl('/');
+      }
     });
-
-    if (this.team && this.league) {
-      this.getTeamFixtures(this.team, this.league);
-    } else {
-      this.r.navigateByUrl('/');
-    }
   }
 
-  getTeamFixtures(teamCode: number, leagueCode: number): void {
-    this.s.getFixtures(teamCode, leagueCode).subscribe((data) => {
+  getTeamFixtures(leagueCode: number, teamCode: number): void {
+    this.s.getFixtures(leagueCode, teamCode).subscribe((data) => {
       this.dataFixture = data.response;
     });
   }
 
   goBack() {
     this.r.navigateByUrl('/');
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

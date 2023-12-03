@@ -1,19 +1,14 @@
 <section class="container">
-  <!-- <div class="row">
-    <div class="col center">
-      <h3 style="text-align: center">Standings</h3>
-    </div>
-  </div> -->
   <div class="row pb-4 mt-5">
     <div class="col"></div>
     <div class="btn-group col-6" role="group" aria-label="Basic example">
       <button
-        *ngFor="let l of leagues"
-        id="{{l.name.toLowerCase()}}Select"
-        type="button"
-        (click)="getStandings(l.code)"
-        class="btn btn-success"
-      >
+              *ngFor="let l of leagues"
+              id="{{l.name.toLowerCase()}}Select"
+              type="button"
+              (click)="getStandings(l.code)"
+              class="btn btn-success"
+              [class]="{'active':l.code === selectedLeague }">
         {{l.name}}
       </button>
     </div>
@@ -21,7 +16,7 @@
   </div>
   <div class="row">
     <div class="col-8 offset-2">
-      <table *ngIf="data; else noLeague" class="table">
+      <table *ngIf="dataStandings.length; else noLeague" class="table">
         <thead class="table-dark">
           <tr>
             <th scope="col" class="text-center">#</th>
@@ -36,18 +31,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let s of data; let i = index">
+          <tr *ngFor="let s of dataStandings; let i = index">
             <th scope="row" style="width: 50px">{{i+1}}</th>
             <td class="text-right" style="width: 50px">
               <img
-                alt="{{s.team.name}}"
-                title="{{s.team.name}}"
-                [src]="s.team.logo"
-                style="width: 100%"
-              />
+                   alt="{{s.team.name}}"
+                   title="{{s.team.name}}"
+                   [src]="s.team.logo"
+                   style="width: 100%" />
             </td>
             <td class="text-left">
-              <a [routerLink]="['fixtures',selectedLeague,s.team.id]">{{s.team.name}}</a>
+              <a [routerLink]="['fixtures',selectedLeague,s.team.id]">
+                {{s.team.name}}
+              </a>
             </td>
             <td class="text-center">{{s.all.played}}</td>
             <td class="text-center">{{s.all.win}}</td>

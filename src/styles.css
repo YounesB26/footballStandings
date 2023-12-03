@@ -1,4 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   background-color: #ffffff;
+  background-image: url("./assets/img/back.png");
+  background-size: 15%;
+  font-size: 16px;
+  font-family: "Verdana";
+}
+
+.container {
+  background-color: #ffffff;
+}
+
+.striped > div:nth-child(even) {
+  background-color: rgb(223, 223, 223);
+  vertical-align: middle;
+}
+
+.striped > span {
+  height: 100%;
+  vertical-align: middle;
 }

@@ -1,4 +1,4 @@
-#### DICG : https://docs.google.com/document/d/182xVubAkItQyOvewlVZ5TIJUY1sT_5bUfIZN5REYsi8/edit
+#### DCIG : https://docs.google.com/document/d/182xVubAkItQyOvewlVZ5TIJUY1sT_5bUfIZN5REYsi8/edit
 
 ### ids https://dashboard.api-football.com/soccer/ids
 

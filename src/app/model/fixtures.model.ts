@@ -51,13 +51,13 @@ export interface I_Fixture {
       id: number;
       name: string;
       logo: string;
-      winner: false;
+      winner:  boolean;
     };
     away: {
       id: number;
       name: string;
       logo: string;
-      winner: true;
+      winner: boolean;
     };
   };
   goals: {
