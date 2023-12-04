@@ -24,7 +24,7 @@ export class Standings implements OnInit, OnDestroy {
   selectedLeague: number = 0;
   subscription: Subscription = Subscription.EMPTY;
   constructor(
-    private st: StandingsService,
+    private standingsService: StandingsService,
     private dataSave: DataSharingService
   ) {}
 
@@ -37,7 +37,7 @@ export class Standings implements OnInit, OnDestroy {
 
   getStandings(leagueCode: number): void {
     this.dataSave.setLeague((this.selectedLeague = leagueCode));
-    this.subscription = this.st
+    this.subscription = this.standingsService
       .getLeague(leagueCode, this.season)
       .subscribe((data) => {
         if (data.response && data.response.length) {

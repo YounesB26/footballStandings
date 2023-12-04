@@ -3,13 +3,13 @@
     <div class="col"></div>
     <div class="btn-group col-6" role="group" aria-label="Basic example">
       <button
-              *ngFor="let l of leagues"
-              id="{{l.name | lowercase}}Select"
+              *ngFor="let league of leagues"
+              id="{{league.name | lowercase}}Select"
               type="button"
-              (click)="getStandings(l.code)"
+              (click)="getStandings(league.code)"
               class="btn btn-success"
-              [class]="{'active':l.code === selectedLeague }">
-        {{l.name}}
+              [class]="{'active':league.code === selectedLeague }">
+        {{league.name}}
       </button>
     </div>
     <div class="col"></div>
@@ -31,26 +31,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let s of dataStandings; let i = index">
+          <tr *ngFor="let standing of dataStandings; let i = index">
             <th scope="row" style="width: 50px">{{i+1}}</th>
             <td class="text-right" style="width: 50px">
               <img
-                   alt="{{s.team.name}}"
-                   title="{{s.team.name}}"
-                   [src]="s.team.logo"
+                   alt="{{standing.team.name}}"
+                   title="{{standing.team.name}}"
+                   [src]="standing.team.logo"
                    style="width: 100%" />
             </td>
             <td class="text-left">
-              <a [routerLink]="['fixtures',selectedLeague,s.team.id]">
-                {{s.team.name}}
+              <a [routerLink]="['fixtures',selectedLeague,standing.team.id]">
+                {{standing.team.name}}
               </a>
             </td>
-            <td class="text-center">{{s.all.played}}</td>
-            <td class="text-center">{{s.all.win}}</td>
-            <td class="text-center">{{s.all.lose}}</td>
-            <td class="text-center">{{s.all.draw}}</td>
-            <td class="text-center">{{s.all.goals.for-s.all.goals.against}}</td>
-            <td class="text-center"><b>{{s.points}}</b></td>
+            <td class="text-center">{{standing.all.played}}</td>
+            <td class="text-center">{{standing.all.win}}</td>
+            <td class="text-center">{{standing.all.lose}}</td>
+            <td class="text-center">{{standing.all.draw}}</td>
+            <td class="text-center">{{standing.all.goals.for-standing.all.goals.against}}</td>
+            <td class="text-center"><b>{{standing.points}}</b></td>
           </tr>
         </tbody>
       </table>

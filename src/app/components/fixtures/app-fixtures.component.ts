@@ -17,10 +17,10 @@ export class Fixtures implements OnInit, OnDestroy {
   subscription: Subscription = Subscription.EMPTY;
 
   constructor(
-    private r: Router,
+    private router: Router,
     private sharedData: DataSharingService,
     private activeRoute: ActivatedRoute,
-    private s: FixturesService
+    private fixturesService: FixturesService
   ) {}
 
   ngOnInit() {
@@ -31,19 +31,19 @@ export class Fixtures implements OnInit, OnDestroy {
         this.getTeamFixtures(this.league, this.team);
         this.sharedData.setLeague(this.league);
       } else {
-        this.r.navigateByUrl('/');
+        this.router.navigateByUrl('/');
       }
     });
   }
 
   getTeamFixtures(leagueCode: number, teamCode: number): void {
-    this.s.getFixtures(leagueCode, teamCode).subscribe((data) => {
+    this.fixturesService.getFixtures(leagueCode, teamCode).subscribe((data) => {
       this.dataFixture = data.response;
     });
   }
 
   goBack() {
-    this.r.navigateByUrl('/');
+    this.router.navigateByUrl('/');
   }
 
   ngOnDestroy(): void {
