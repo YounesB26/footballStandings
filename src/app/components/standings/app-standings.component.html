@@ -4,7 +4,7 @@
     <div class="btn-group col-6" role="group" aria-label="Basic example">
       <button
               *ngFor="let l of leagues"
-              id="{{l.name.toLowerCase()}}Select"
+              id="{{l.name | lowercase}}Select"
               type="button"
               (click)="getStandings(l.code)"
               class="btn btn-success"
