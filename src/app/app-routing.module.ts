@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'fixtures/:league/:team', component: Fixtures },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
