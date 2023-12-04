@@ -4,11 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Router } from './modules/router';
-import { Standings } from './components/standings/app.standings';
-import { Fixtures } from './components/fixtures/app.fixtures';
+import { Standings } from './components/standings/app-standings.component';
+import { Fixtures } from './components/fixtures/app-fixtures.component';
 
-const router: Router = new Router();
+const router: AppRoutingModule = new AppRoutingModule();
 
 @NgModule({
   declarations: [AppComponent, Standings, Fixtures],

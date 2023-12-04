@@ -1,5 +1,5 @@
 <section class="container">
-  <div class="row pt-4 pb-4" *ngIf="dataFixture.length; else noData">
+  <div class="row pt-4 pb-4" *ngIf="dataFixture.length">
     <div class="col-6 offset-3 striped">
       <div *ngFor="let f of dataFixture" class="row pb-1">
         <div class="col-1">
@@ -16,14 +16,6 @@
       </div>
     </div>
   </div>
-
-  <ng-template #noData>
-    <div class="row pt-5">
-      <div class="alert alert-warning col-6 offset-4" role="alert">
-        Please try later
-      </div>
-    </div>
-  </ng-template>
 
   <div class="row">
     <div class="col-2 offset-5">

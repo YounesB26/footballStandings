@@ -1,0 +1,10 @@
+.striped > div:nth-child(even) {
+  background-color: rgb(223, 223, 223);
+  vertical-align: middle;
+}
+
+.striped > span {
+  height: 100%;
+  vertical-align: middle;
+}
+

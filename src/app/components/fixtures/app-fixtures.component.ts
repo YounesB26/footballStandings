@@ -1,13 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { I_Fixture } from 'src/app/model/fixtures.model';
-import { FixturesService } from 'src/app/services/footAPI.services';
-import { DataSharingService } from 'src/app/services/dataSharing.services';
+import { I_Fixture } from 'src/app/model/fixtures';
+import { FixturesService } from 'src/app/services/app-api.services';
+import { DataSharingService } from 'src/app/services/app-sharing.services';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-fixtures',
-  templateUrl: './app.fixtures.html',
+  templateUrl: './app-fixtures.component.html',
+  styleUrls : ['./app-fixtures.component.css']
 })
 export class Fixtures implements OnInit, OnDestroy {
   dataFixture: I_Fixture[] = [];

@@ -1,17 +1,25 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { StandingsService } from '../../services/footAPI.services';
-import { I_Standings } from 'src/app/model/standings.model';
-import { DataSharingService } from 'src/app/services/dataSharing.services';
-import { constants } from 'src/app/constants/constants';
+import { StandingsService } from '../../services/app-api.services';
+import { I_Standings } from 'src/app/model/standings';
+import { DataSharingService } from 'src/app/services/app-sharing.services';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-standings',
-  templateUrl: './app.standings.html',
+  templateUrl: './app-standings.component.html',
+  styleUrls : ['./app-standings.component.css']
 })
 export class Standings implements OnInit, OnDestroy {
-  public dataStandings: I_Standings[] = [];
-  leagues: { name: string; code: number }[] = constants.LEAGUES_TO_SHOW;
+  dataStandings: I_Standings[] = [];
+  LEAGUES_TO_SHOW: { name: string; code: number }[] = [
+    { name: 'England', code: 39 },
+    { name: 'Spain', code: 140 },
+    { name: 'France', code: 61 },
+    { name: 'Germany', code: 78 },
+    { name: 'Italy', code: 135 },
+  ];
+
+  leagues: { name: string; code: number }[] = this.LEAGUES_TO_SHOW;
   season: number = new Date().getFullYear();
   selectedLeague: number = 0;
   subscription: Subscription = Subscription.EMPTY;
