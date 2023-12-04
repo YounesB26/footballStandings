@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { Standings } from './components/standings/app-standings.component';
 import { Fixtures } from './components/fixtures/app-fixtures.component';
 
-const router: AppRoutingModule = new AppRoutingModule();
-
 @NgModule({
   declarations: [AppComponent, Standings, Fixtures],
   imports: [
