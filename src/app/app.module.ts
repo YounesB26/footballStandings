@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Standings } from './components/standings/app-standings.component';
@@ -14,8 +13,7 @@ const router: AppRoutingModule = new AppRoutingModule();
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    RouterModule.forRoot(router.routes, { useHash: true }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
