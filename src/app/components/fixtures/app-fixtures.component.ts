@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { I_Fixture } from 'src/app/model/fixtures';
-import { FixturesService } from 'src/app/services/app-api.services';
-import { DataSharingService } from 'src/app/services/app-sharing.services';
+import { FixturesService } from 'src/app/services/app-api.service';
+import { DataSharingService } from 'src/app/services/app-sharing.service';
 import { Subscription } from 'rxjs';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { StandingsService } from '../../services/app-api.services';
+import { StandingsService } from '../../services/app-api.service';
 import { I_Standings } from 'src/app/model/standings';
-import { DataSharingService } from 'src/app/services/app-sharing.services';
+import { DataSharingService } from 'src/app/services/app-sharing.service';
 import { Subscription } from 'rxjs';
 
 @Component({
